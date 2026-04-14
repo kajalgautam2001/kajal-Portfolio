@@ -11,6 +11,14 @@ type ExperienceItem = {
 };
 
 const experienceData: ExperienceItem[] = [
+  company: string;
+  role: string;
+  date: string;
+  links?: { text: string; url: string }[];
+  subsections: { title: string; tag?: string; points: string[] }[];
+};
+
+const experienceData: ExperienceItem[] = [
   {
     company: "Memat Digi Pvt. Ltd.",
     role: "Social Media Manager & Brand Lead",
