@@ -1,0 +1,245 @@
+/* ============================================
+   EXPERIENCE SECTION
+   ============================================ */
+.experience {
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accent-1) 10%,
+    var(--accent-2) 50%,
+    var(--accent-1) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline dot */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.timeline-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+}
+
+.timeline-dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid rgba(108, 99, 255, 0.3);
+  border-radius: 50%;
+}
+
+/* Date side */
+.timeline-date-col {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 28px;
+}
+
+.timeline-date {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-2);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* Content card */
+.timeline-card {
+  padding: 32px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.timeline-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-accent);
+}
+
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+.timeline-company {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-1);
+  margin-bottom: 16px;
+}
+
+/* Sub-sections within a card */
+.timeline-subsection {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.timeline-subsection:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.timeline-sub-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-sub-title::before {
+  content: "▸";
+  color: var(--accent-1);
+}
+
+.timeline-sub-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 212, 170, 0.1);
+  color: var(--accent-2);
+  letter-spacing: 0.5px;
+}
+
+.timeline-points {
+  list-style: none;
+}
+
+.timeline-points li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.timeline-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-1);
+}
+
+/* Alternate layout */
+.timeline-item:nth-child(even) .timeline-date-col {
+  order: 2;
+  justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) .timeline-card-col {
+  order: 1;
+}
+
+@media (max-width: 768px) {
+  .experience-timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    padding-left: 50px;
+    gap: 8px;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    top: 0;
+  }
+
+  .timeline-date-col {
+    justify-content: flex-start !important;
+    order: -1 !important;
+    padding-top: 0;
+  }
+
+  .timeline-item:nth-child(even) .timeline-date-col {
+    order: -1;
+    justify-content: flex-start;
+  }
+
+  .timeline-item:nth-child(even) .timeline-card-col {
+    order: 0;
+  }
+
+  .timeline-card {
+    padding: 24px;
+  }
+}
