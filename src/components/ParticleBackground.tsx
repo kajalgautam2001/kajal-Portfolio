@@ -37,12 +37,14 @@ function Particles() {
   return (
     <points ref={meshRef}>
       <bufferGeometry>
+        {/* @ts-expect-error type missing args */}
         <bufferAttribute
           attach="attributes-position"
           count={count}
           array={positions}
           itemSize={3}
         />
+        {/* @ts-expect-error type missing args */}
         <bufferAttribute
           attach="attributes-size"
           count={count}
