@@ -2,7 +2,15 @@ import { useEffect, useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import "./styles/Experience.css";
 
-const experienceData = [
+type ExperienceItem = {
+  company: string;
+  role: string;
+  date: string;
+  links?: { text: string; url: string }[];
+  subsections: { title: string; tag?: string; points: string[] }[];
+};
+
+const experienceData: ExperienceItem[] = [
   {
     company: "Memat Digi Pvt. Ltd.",
     role: "Social Media Manager & Brand Lead",
